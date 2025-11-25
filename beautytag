@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautytag® - Bem-Estar Corporativo | Porque cuidar é produtivo</title>
+    <style>
+        :root {
+            --azul-principal: #1e40af;
+            --azul-claro: #dbeafe;
+            --verde-destaque: #10b981;
+            --branco: #ffffff;
+            --cinza-claro: #f8fafc;
+            --cinza-texto: #475569;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--branco);
+            color: var(--cinza-texto);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--branco);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--azul-principal);
+        }
+        
+        .logo-tagline {
+            font-size: 14px;
+            color: var(--cinza-texto);
+            margin-left: 10px;
+            font-style: italic;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--azul-claro) 0%, var(--branco) 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="%2310b981" opacity="0.05"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: var(--azul-principal);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--cinza-texto);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--verde-destaque);
+            color: var(--branco);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: #0da271;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-visual img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--azul-principal);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Scientific Proof Section */
+        .scientific-proof {
+            background-color: var(--cinza-claro);
+        }
+        
+        .oxford-model {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .pillar {
+            background-color: var(--branco);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .pillar:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pillar-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--azul-claro);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: var(--azul-principal);
+            font-size: 1.8rem;
+        }
+        
+        .pillar h3 {
+            color: var(--azul-principal);
+            margin-bottom: 15px;
+        }
+        
+        /* Solution Section */
+        .solution-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .solution-card {
+            background-color: var(--branco);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .solution-header {
+            background-color: var(--azul-principal);
+            color: var(--branco);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .solution-body {
+            padding: 30px;
+        }
+        
+        .solution-body ul {
+            list-style-type: none;
+        }
+        
+        .solution-body li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .solution-body li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--verde-destaque);
+            font-weight: bold;
+        }
+        
+        /* Results Section */
+        .results {
+            background-color: var(--cinza-claro);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .result-item {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .result-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--azul-claro);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: var(--azul-principal);
+            font-size: 2rem;
+        }
+        
+        .result-item h3 {
+            color: var(--azul-principal);
+            margin-bottom: 15px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--azul-principal) 0%, #1e3a8a 100%);
+            color: var(--branco);
+        }
+        
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-section .cta-button {
+            background-color: var(--verde-destaque);
+            font-size: 1.2rem;
+            padding: 18px 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--azul-principal);
+            color: var(--branco);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .oxford-model, .solution-cards, .results-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .oxford-model, .solution-cards, .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-text">BEAUTYTAG®</div>
+                    <div class="logo-tagline">porque cuidar é produtivo</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Transforme o Bem-Estar em sua Maior Vantagem Competitiva</h1>
+                    <p>Sua empresa merece uma estratégia baseada em ciência para aumentar retenção, produtividade e engajamento.</p>
+                    <a href="https://wa.me/message/4W4HZLH372Y6F1" class="cta-button">Fale com nosso Especialista Agora!</a>
+                </div>
+                <div class="hero-visual">
+                    <!-- Placeholder for an image -->
+                    <div style="width: 100%; height: 300px; background-color: var(--azul-claro); border-radius: 10px; display: flex; justify-content: center; align-items: center; color: var(--azul-principal);">
+                        <img src="https://grupoaccord.com.br/wp-content/uploads/2023/10/shutterstock_648579007-scaled.jpg" alt="colaboradores felizes">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scientific Proof Section -->
+    <section class="scientific-proof">
+        <div class="container">
+            <div class="section-title">
+                <h2>Metodologia Baseada na Ciência de Oxford</h2>
+                <p>Nossa estratégia é fundamentada nos 6 Impulsionadores de Bem-Estar desenvolvidos pela Universidade de Oxford</p>
+            </div>
+            <div class="oxford-model">
+                <div class="pillar">
+                    <div class="pillar-icon">D</div>
+                    <h3>Desenvolvimento</h3>
+                    <p>Oportunidades de crescimento pessoal e profissional que impulsionam o engajamento.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">R</div>
+                    <h3>Relacionamentos</h3>
+                    <p>Conexões positivas no ambiente de trabalho que fortalecem a cultura organizacional.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">S</div>
+                    <h3>Saúde</h3>
+                    <p>Cuidado integral com a saúde física e mental para equipes mais produtivas e resilientes.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">A</div>
+                    <h3>Autonomia</h3>
+                    <p>Flexibilidade e controle sobre como o trabalho é realizado, aumentando a satisfação.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">S</div>
+                    <h3>Segurança</h3>
+                    <p>Ambiente estável que promove confiança e reduz o estresse crônico.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">P</div>
+                    <h3>Propósito</h3>
+                    <p>Senso de significado e contribuição que motiva e engaja os colaboradores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="section-title">
+                <h2>Solução 360º da Beautytag®</h2>
+                <p>Oferecemos uma abordagem completa para o bem-estar corporativo, adaptada às necessidades de ME e EPP</p>
+            </div>
+            <div class="solution-cards">
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>Pilar 1: Experiência In Loco</h3>
+                        <p>BeautytagDay</p>
+                    </div>
+                    <div class="solution-body">
+                        <ul>
+                            <li>Combate ao estresse no ambiente de trabalho</li>
+                            <li>Prevenção de riscos à saúde</li>
+                            <li>Atividades práticas de bem-estar</li>
+                            <li>Avaliações de saúde personalizadas</li>
+                            <li>Workshops interativos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>Pilar 2: Benefício Contínuo</h3>
+                        <p>Plataforma Digital</p>
+                    </div>
+                    <div class="solution-body">
+                        <ul>
+                            <li>Foco em ganhos de produtividade</li>
+                            <li>Flexibilidade para os colaboradores</li>
+                            <li>Autonomia no cuidado com a saúde</li>
+                            <li>Conteúdo personalizado</li>
+                            <li>Acompanhamento de métricas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <h3>Pilar 3: Desenvolvimento Estratégico</h3>
+                        <p>Consultorias</p>
+                    </div>
+                    <div class="solution-body">
+                        <ul>
+                            <li>Foco em desenvolvimento de habilidades</li>
+                            <li>Fortalecimento de relacionamentos</li>
+                            <li>Estratégias de retenção de talentos</li>
+                            <li>Plano de carreira e crescimento</li>
+                            <li>Gestão de mudança organizacional</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results">
+        <div class="container">
+            <div class="section-title">
+                <h2>Caminhos para a Performance</h2>
+                <p>Resultados mensuráveis que transformam o bem-estar em vantagem competitiva</p>
+            </div>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-icon">↑</div>
+                    <h3>Aumenta a Retenção</h3>
+                    <p>Reduza o turnover em até 40% com programas de bem-estar que valorizam seus colaboradores.</p>
+                </div>
+                <div class="result-item">
+                    <div class="result-icon">⚡</div>
+                    <h3>Potencializa a Produtividade</h3>
+                    <p>Equipes saudáveis e engajadas são até 30% mais produtivas, segundo pesquisas de Oxford.</p>
+                </div>
+                <div class="result-item">
+                    <div class="result-icon">🔍</div>
+                    <h3>Fortalece o Recrutamento</h3>
+                    <p>Empresas com programas de bem-estar atraem 50% mais candidatos qualificados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para transformar o bem-estar em resultados?</h2>
+            <p>Nossos especialistas estão preparados para desenvolver uma proposta estratégica personalizada para sua empresa.</p>
+            <a href="https://wa.me/message/4W4HZLH372Y6F1" class="cta-button">Solicite uma Proposta Estratégica</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">BEAUTYTAG®</div>
+                <div class="footer-text">porque cuidar é produtivo</div>
+                <div class="footer-text">© 2023 Beautytag®. Todos os direitos reservados.</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
